@@ -1,0 +1,33 @@
+Fact Table ['market_id', 'mode_id', 'vyapari_agreement_id', 'vyapari_id', 'quality_id', 'time_id', 'commission_rate_id', 'location_id', 'customer_id', 'quality_supplied', 'sgst', 'commission_amount', 'price', 'total_quantity_in_hand', 'quality', 'quantity', 'commission_rate_agreed', 'easy_quality_change', 'amount', 'easy_new_price', 'discount', 'quantity_supplied', 'punctual_supply', 'selling_rate', 'delivered_quality', 'commission_rate', 'price_agreed', 'original_price_agreed', 'quality_agreed', 'used', 'vacant', 'price_in_market', 'delivery_time_price_agreed', 'delivery_lead_time', 'quantity_agreed', 'quantity_sold_in_market', 'quality_required', 'transport_cost', 'quantity_thrown', 'agreed_commission_rate', 'easy_new_quantity', 'storage_cost', 'cgst', 'quantity_in_market', 'quantity_required']
+--------------------------------
+Time Dimension Table ['time_id', 'date', 'day', 'week', 'month', 'quarter', 'year']
+--------------------------------
+vyapari Dimension Table: ['vyapari_id', 'telephone', 'name', 'address']
+--------------------------------
+customer Dimension Table: ['customer_id', 'name', 'address']
+--------------------------------
+quality Dimension Table: ['quality_id', 'quality_rating']
+--------------------------------
+market Dimension Table: ['market_id', 'name']
+--------------------------------
+vyapari agreement Dimension Table: ['vyapari_agreement_id']
+--------------------------------
+commission rate Dimension Table: ['commission_rate_id', 'rate_percent']
+--------------------------------
+mode Dimension Table: ['mode_id', 'cash', 'credit']
+--------------------------------
+location Dimension Table: ['location_id', 'address']
+--------------------------------
+Creating schema with fact and dimension tables...
+CREATE  TABLE DBO.vyapari_TABLE (vyapari_id int PRIMARY KEY,telephone int,name text,address text);
+CREATE  TABLE DBO.customer_TABLE (customer_id int PRIMARY KEY,name text,address text);
+CREATE  TABLE DBO.quality_TABLE (quality_id int PRIMARY KEY,quality_rating int);
+CREATE  TABLE DBO.market_TABLE (market_id int PRIMARY KEY,name text);
+CREATE  TABLE DBO.vyapari_agreement_TABLE (vyapari_agreement_id int PRIMARY KEY);
+CREATE  TABLE DBO.commission_rate_TABLE (commission_rate_id int PRIMARY KEY,rate_percent float(4));
+CREATE  TABLE DBO.mode_TABLE (mode_id int PRIMARY KEY,cash bit,credit bit);
+CREATE  TABLE DBO.location_TABLE (location_id int PRIMARY KEY,address text);
+CREATE TABLE DBO.TIME_TABLE (time_id int PRIMARY KEY,date date,day int,week int,month int,quarter int,year int);
+CREATE  TABLE DBO.FACT_TABLE (market_id int REFERENCES market_TABLE(market_id),mode_id int REFERENCES mode_TABLE(mode_id),vyapari_agreement_id int REFERENCES vyapari_agreement_TABLE(vyapari_agreement_id),vyapari_id int REFERENCES vyapari_TABLE(vyapari_id),quality_id int REFERENCES quality_TABLE(quality_id),time_id int REFERENCES TIME_TABLE(time_id),commission_rate_id int REFERENCES commission_rate_TABLE(commission_rate_id),location_id int REFERENCES location_TABLE(location_id),customer_id int REFERENCES customer_TABLE(customer_id),quality_supplied text,sgst float(4),commission_amount float(4),price float(4),total_quantity_in_hand int,quality text,quantity int,commission_rate_agreed float(4),easy_quality_change int,amount float(4),easy_new_price int,discount float(4),quantity_supplied int,punctual_supply bit,selling_rate float(4),delivered_quality text,commission_rate float(4),price_agreed float(4),original_price_agreed float(4),quality_agreed text,used float(4),vacant float(4),price_in_market float(4),delivery_time_price_agreed float(4),delivery_lead_time float(4),quantity_agreed int,quantity_sold_in_market int,quality_required text,transport_cost float(4),quantity_thrown int,agreed_commission_rate float(4),easy_new_quantity int,storage_cost float(4),cgst float(4),quantity_in_market int,quantity_required int);
+
+Schema created!

@@ -1,0 +1,33 @@
+Fact Table ['vyapari_id', 'location_id', 'vyapari_agreement_id', 'commission_rate_id', 'customer_id', 'time_id', 'quality_id', 'market_id', 'mode_id', 'quality_supplied', 'price', 'commission_amount', 'easy_new_price', 'quantity_in_market', 'punctual_supply', 'cgst', 'easy_new_quantity', 'price_agreed', 'selling_rate', 'commission_rate_agreed', 'vacant', 'quality', 'sgst', 'easy_quality_change', 'price_in_market', 'amount', 'used', 'original_price_agreed', 'discount', 'quality_agreed', 'storage_cost', 'quantity_agreed', 'transport_cost', 'quantity_required', 'delivery_lead_time', 'quality_required', 'agreed_commission_rate', 'commission_rate', 'quantity_supplied', 'quantity', 'delivered_quality', 'delivery_time_price_agreed', 'total_quantity_in_hand', 'quantity_sold_in_market', 'quantity_thrown']
+--------------------------------
+Time Dimension Table ['time_id', 'date', 'day', 'week', 'month', 'quarter', 'year']
+--------------------------------
+vyapari Dimension Table: ['vyapari_id', 'address', 'name', 'telephone']
+--------------------------------
+customer Dimension Table: ['customer_id', 'address', 'name']
+--------------------------------
+quality Dimension Table: ['quality_id', 'quality_rating']
+--------------------------------
+market Dimension Table: ['market_id', 'name']
+--------------------------------
+vyapari agreement Dimension Table: ['vyapari_agreement_id']
+--------------------------------
+commission rate Dimension Table: ['commission_rate_id', 'rate_percent']
+--------------------------------
+mode Dimension Table: ['mode_id', 'cash', 'credit']
+--------------------------------
+location Dimension Table: ['location_id', 'address']
+--------------------------------
+Creating schema with fact and dimension tables...
+vyapari_TABLE already exists
+customer_TABLE already exists
+quality_TABLE already exists
+market_TABLE already exists
+vyapari_agreement_TABLE already exists
+commission_rate_TABLE already exists
+mode_TABLE already exists
+location_TABLE already exists
+TIME_TABLE already exists
+FACT_TABLE already exists
+
+Schema created!
